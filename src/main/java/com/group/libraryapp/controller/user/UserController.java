@@ -3,7 +3,7 @@ package com.group.libraryapp.controller.user;
 import com.group.libraryapp.dto.user.request.UserCreateRequest;
 import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
-import com.group.libraryapp.service.user.UserService;
+import com.group.libraryapp.service.user.UserServiceV2;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +11,9 @@ import java.util.List;
 @RestController // @RestController: 1.API 진입지점 만들어 줌 / 2.UserController 클래스를 스프링 빈으로 등록시켜 줌 / 3.@Controller + @ResponseBody(json 형태로 데이터를 반환해 줌)
 public class UserController { // Controller: API와 HTTP 담당
 
-    private final UserService userService;
+    private final UserServiceV2 userService;
 
-    public UserController(UserService userService) {  // UserController가 JdbcTemplate에 의존
+    public UserController(UserServiceV2 userService) {  // UserController가 JdbcTemplate에 의존
         this.userService = userService;
     }
 
@@ -36,7 +36,7 @@ public class UserController { // Controller: API와 HTTP 담당
 
         /* 두번째
         return jdbcTemplate.query(sql, new RowMapper<UserResponse>() { // sql 결과들을 UserResponse 객체로 반환, RowMapper는 함수형 인터페이스
-            @Override
+            @Overrid    e
             public UserResponse mapRow(ResultSet rs, int rowNum) throws SQLException { // mapROW: sql 결과를 UserResponse 객체로 매핑하여 결과를 리턴
                 long id = rs.getLong("id");
                 String name = rs.getString("name");
@@ -64,7 +64,7 @@ public class UserController { // Controller: API와 HTTP 담당
 
     @DeleteMapping("/user") // 삭제
     public void deleteUser(@RequestParam String name) {
-        userService.deletrUser(name);
+        userService.deleteUser(name);
     }
 
 
