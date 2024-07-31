@@ -1,6 +1,10 @@
 package com.group.libraryapp.domain.user;
 
+import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity // @Entity: 스프링의 객체와 DB의 테이블을 매핑
 public class User {
@@ -13,6 +17,9 @@ public class User {
     private String name;
 
     private Integer age; // age는 null이 올 수 있고, Integer는 DB의 int와 동일하므로 @Column 생략 가능
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // 유저 입장: 1(유저[부모]) : N[자식] / 연관관계의 주인이 아닌쪽에 mappedBy 설정
+    private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
     protected User() {}  // JPA 사용하기 위해선 기본 생성자 필요
 
@@ -39,4 +46,17 @@ public class User {
     public void updateName(String name) {
         this.name = name;
     }
+
+    public void loanBook(String bookName) { // 도메인 계층에 비즈니스 로직 작성함
+        this.userLoanHistories.add(new UserLoanHistory(this, bookName));
+    }
+
+    public void returnBook(String bookName) {
+        UserLoanHistory targetHistory = this.userLoanHistories.stream() // (select * from user_loan_history where user_id = ?)
+                .filter(history -> history.getBookName().equals(bookName))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+        targetHistory.doReturn();
+    }
+
 }
