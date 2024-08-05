@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity // @Entity: 스프링의 객체와 DB의 테이블을 매핑
-@Table(name="user")
 public class User {
 
     @Id // 해당 필드를 pk로 간주
