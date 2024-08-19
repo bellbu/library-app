@@ -1,12 +1,15 @@
 package com.group.libraryapp.domain.user;
 
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity // @Entity: 스프링의 객체와 DB의 테이블을 매핑
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // User의 기본 생성자를 자동으로 생성
 public class User {
 
     @Id // 해당 필드를 pk로 간주
@@ -21,7 +24,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // 유저 입장: 1(유저[부모]) : N[자식] / 연관관계의 주인이 아닌쪽에 mappedBy 설정
     private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
-    protected User() {}  // JPA 사용하기 위해선 기본 생성자 필요
+    // protected User() {}  // JPA 사용하기 위해선 기본 생성자 필요
 
     public User(String name, Integer age) {
         if (name == null || name.isBlank()) {                                                       // IllegalArgumentException: 메서드에 잘못된 인수가 전달되었을 때 발생하는 예외
