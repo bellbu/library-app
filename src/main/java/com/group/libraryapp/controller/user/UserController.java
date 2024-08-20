@@ -63,7 +63,7 @@ public class UserController { // Controller: API와 HTTP 담당
     }
 
     @DeleteMapping("/user") // 삭제
-    public void deleteUser(@RequestParam String name) {
+    public void deleteUser(@RequestParam("name") String name) {
         userService.deleteUser(name);
     }
 

@@ -1,8 +1,8 @@
 package com.group.libraryapp.domain.user.loanhistory;
 
 import com.group.libraryapp.domain.user.User;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 
 @Entity
 public class UserLoanHistory {
@@ -11,6 +11,7 @@ public class UserLoanHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
 
+    @JoinColumn(nullable = false)
     @ManyToOne // 히스토리 입장: N(히스토리) : 1(유저)
     private User user;
 

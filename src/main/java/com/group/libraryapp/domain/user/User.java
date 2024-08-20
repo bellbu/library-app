@@ -1,10 +1,10 @@
 package com.group.libraryapp.domain.user;
 
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
