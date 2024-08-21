@@ -9,7 +9,7 @@ spring:
     driver-class-name: org.h2.Driver #DB 접속을 위한 Driver
   jpa:
     hibernate:
-      ddl-auto: create #H2 DB를 메모리로 설정했기 때문에 서버 시작될 때 마다 테이블 제거하고 만들어 줌
+      ddl-auto: create #서버 시작될 때 마다 테이블 제거하고 자동으로 생성해 줌
     properties:
       hibernate:
         show_sql: true

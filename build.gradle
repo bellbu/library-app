@@ -1,5 +1,5 @@
 plugins { // 플러그인 섹션
-	id 'org.springframework.boot' version '3.3.2' // Spring Boot 플러그인을 적용: 스프링 애플리케이션을 빌드하고 실행하는 데 필요한 작업을 자동으로 설정
+	id 'org.springframework.boot' version '3.0.1' // Spring Boot 플러그인을 적용: 스프링 애플리케이션을 빌드하고 실행하는 데 필요한 작업을 자동으로 설정
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE' // 외부 라이브러리, 프레임워크의 버전관리, 의존성 관리하는데 도와줌
 	id 'java' // Java 프로젝트로 인식되도록 해주는 기본 Java 플러그인
 }
@@ -16,6 +16,8 @@ repositories {
 
 // 의존성 섹션: 사용하는 라이브러리/프레임워크를 표시하는 곳
 dependencies { // implementation: 해당 의존성을 항시 사용, runtimeOnly: 코드를 실행할 때에만 의존성을 사용, testImplementation: 테스트 코드를 컴파일 하거나 실행시킬 때 항시 사용
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1' // MyBatis 추가
+
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.projectlombok:lombok' // lombok 의존성 추가
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA를 사용하여 데이터베이스와 상호작용할 수 있게 해주는 스프링 부트 스타터 의존성
