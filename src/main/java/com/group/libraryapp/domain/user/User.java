@@ -25,7 +25,6 @@ public class User {
     private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
     // protected User() {}  // JPA 사용하기 위해선 기본 생성자 필요
-
     public User(String name, Integer age) {
         if (name == null || name.isBlank()) {                                                       // IllegalArgumentException: 메서드에 잘못된 인수가 전달되었을 때 발생하는 예외
             throw new IllegalArgumentException(String.format("잘못된 name(%s)이 들어왔습니다.", name)); // String.format(): 리턴되는 문자열의 형태를 지정하는 메소드
