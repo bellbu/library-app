@@ -34,3 +34,11 @@ dependencies { // implementation: 해당 의존성을 항시 사용, runtimeOnly
 tasks.named('test') {
 	useJUnitPlatform() // 테스트를 실행할 때 JUnit Platform을 사용(JUnit 5 기반의 테스트 환경을 사용)
 }
+
+task copyPrivate(type: Copy) {
+	copy {
+		from './submodule-data/library-app'
+		include "*.yml"
+		into 'src/main/resources'
+	}
+}
