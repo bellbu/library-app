@@ -20,6 +20,7 @@ dependencies { // implementation: 해당 의존성을 항시 사용, runtimeOnly
 
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.projectlombok:lombok' // lombok 의존성 추가
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis 의존성 추가
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA를 사용하여 데이터베이스와 상호작용할 수 있게 해주는 스프링 부트 스타터 의존성
 	implementation 'org.springframework.boot:spring-boot-starter-web' // 웹 애플리케이션을 개발할 수 있게 해주는 스프링 부트 스타터 의존성(기본적으로 내장형 톰캣 서버를 포함)
 	runtimeOnly 'com.h2database:h2'
