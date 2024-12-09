@@ -45,10 +45,8 @@ public class UserServiceV2 {
 
     @Transactional
     public void deleteUser(String name) {
-        System.out.println("1");
         User user = userRepository.findByName(name)
                 .orElseThrow(IllegalArgumentException::new);
-        System.out.println("2");
         userRepository.delete(user);
     }
 }

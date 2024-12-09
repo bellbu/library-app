@@ -18,7 +18,7 @@ Chrome 및 Edge 브라우저에서 정상 구동 확인했습니다.
 
 ### Network Error 처리
 
-* ERR_NETWORK : `axios` 단에서 난 Error로, 서버가 아예 켜지지 않은 경우입니다.
+* ERR_NETWORK : `` 단에서 난 Error로, 서버가 아예 켜지지 않은 경우입니다.
   * `서버에 연결이 불가능하거나, 네트워크 오류입니다.` 라는 Alert가 발생합니다.
 * 404 Error: 서버에 특정 API에 대한 구현이 진행되지 않았을 때 발생하는 에러입니다.
   * `해당 URI에 대한 서버의 응답이 없습니다.` 라는 Alert가 발생합니다. 어떤 Request Method인지, 어떤 URI인지도 함께 표시됩니다.

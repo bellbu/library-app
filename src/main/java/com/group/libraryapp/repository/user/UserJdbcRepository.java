@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
-public class UserJdbcRepository { // Repository: DB 접근 담당
+public class UserJdbcRepository { // JDBC 템플릿 DB 접속: UserServiceV1 버전(현재 사용X)
 
     private final JdbcTemplate jdbcTemplate;
 

@@ -21,7 +21,9 @@ public class User {
 
     private Integer age; // age는 null이 올 수 있고, Integer는 DB의 int와 동일하므로 @Column 생략 가능
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // 유저 입장: 1(유저[부모]) : N[자식] / 연관관계의 주인이 아닌쪽에 mappedBy 설정
+    // @OneToMany: 유저 입장: 1(User[부모]) : N(UserLoanHistory[자식])
+    // mappedBy: 양방향 매핑에서 주인이 아닌쪽에 설정 - User 엔티티에서 userLoanHistories 필드는 관계의 비주인, UserLoanHistory 엔티티의 user 필드가 관계의 주인
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
     // protected User() {}  // JPA 사용하기 위해선 기본 생성자 필요
