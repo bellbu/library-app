@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity // @Entity: 스프링의 객체와 DB의 테이블을 매핑
+@Table(name = "app_user")
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // User의 기본 생성자를 자동으로 생성
 public class User {
 
