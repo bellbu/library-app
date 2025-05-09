@@ -26,7 +26,6 @@ const UserListTableHeader = () => {
     <Container>
       <Title>사용자 이름</Title>
       <Title style={{ left: '22%' }}>나이</Title>
-      <Title style={{ left: '75%' }}>총 회원수</Title>
     </Container>
   );
 };
