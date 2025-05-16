@@ -17,7 +17,7 @@ repositories {
 // 의존성 섹션: 사용하는 라이브러리/프레임워크를 표시하는 곳
 dependencies { // implementation: 해당 의존성을 항시 사용, runtimeOnly: 코드를 실행할 때에만 의존성을 사용, testImplementation: 테스트 코드를 컴파일 하거나 실행시킬 때 항시 사용
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1' // MyBatis 추가
-
+	implementation 'org.springframework.boot:spring-boot-starter-logging' // Logback 의존성 추가
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.projectlombok:lombok' // lombok 의존성 추가
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis' // redis 의존성 추가
